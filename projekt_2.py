@@ -71,7 +71,7 @@ def evaluate_guess(secret, guess):
 tajenka = generate_secret_number()
 print("Hi there! I have generated a random 4-digit number.")
 print("Let's play Bulls-n-Cows game with me!")
-print(tajenka)
+# print(tajenka)
 guesses = 0 
 
 while True:
