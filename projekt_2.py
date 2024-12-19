@@ -73,21 +73,22 @@ print("Hi there! I have generated a random 4-digit number.")
 print("Let's play Bulls-n-Cows game with me!")
 # print(tajenka)
 guesses = 0 
+total_time = 0
 
 while True:
     guesses += 1   # Počítadlo pokusů
-    start_time = time.time()  # Začátek měření času
+    input_starttime = time.time()  # Začátek měření času pro vstup
     user_guess = get_valid_input()  # Získání validního vstupu
+    input_endtime = time.time()    # Konec měření času pro vstup
+    total_time += input_endtime - input_starttime  # Přičtení času pro tento pokus
     bulls, cows = evaluate_guess(tajenka, user_guess)  # Vyhodnocení vstupu
     
     print(f"{bulls} bull{'s' if bulls != 1 else ''}, {cows} cow{'s' if cows != 1 else ''}")
     print("-----------------------------------------------")
 
     if bulls == 4:
-        end_time = time.time()  # Konec měření času
-        elapsed_time = end_time - start_time  # Výpočet uplynulého času
         print(f"Congrats you've got it in {guesses} guesses!")
-        print(f"It took you {elapsed_time:.0f} seconds only to get it right.")
+        print(f"It took you {total_time:.0f} seconds only to get it right.")
         break
 
 
